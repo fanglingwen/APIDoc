@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title> ShowDoc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        @charset "utf-8";
+        body {
+            font: 14px/1.5 "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
+        }
+    </style>
+</head>
+
+<body>
+
+    <style type="text/css">
+        /*body{
+	overflow-x:hidden;overflow-y:hidden;
+	font-size: 1rem;
+	line-height: 1.7em;
+}*/
+    </style>
+    <h3 style="text-align: center;">用户注册</h3>
+    <!-- 这里开始是内容 -->
+    <div class="" style="padding-top:10px;">
+        <p><strong>简要描述：</strong> </p>
+        <ul>
+            <li>用户注册接口</li>
+        </ul>
+        <p><strong>请求URL：</strong> </p>
+        <ul>
+            <li><code id = URL>http://xx.com/api/user/register</code></li>
+        </ul>
+        <p><strong>请求方式：</strong></p>
+        <ul>
+            <li>POST </li>
+        </ul>
+        <p><strong>参数：</strong> </p>
+        
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr style="color: rgb(255, 255, 255); background-color: rgb(0, 136, 204);">
+                    <th style="text-align: left; min-width: 30px;">参数名</th>
+                    <th style="text-align: left; min-width: 30px;">必选</th>
+                    <th style="text-align: left; min-width: 30px;">类型</th>
+                    <th style="text-align: left; min-width: 50px;">中文说明</th>
+                    <th style="text-align: left; min-width: 77px;">备注</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;">username</td>
+                    <td style="text-align: left;">是</td>
+                    <td style="text-align: left;">string</td>
+                    <td>用户名</td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">password</td>
+                    <td style="text-align: left;">是</td>
+                    <td style="text-align: left;">string</td>
+                    <td>密码</td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">name</td>
+                    <td style="text-align: left;">否</td>
+                    <td style="text-align: left;">string</td>
+                    <td>昵称</td>
+                    <td> </td>
+                </tr>
+            </tbody>
+        </table>
+        <p><strong>返回参数说明</strong> </p>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr style="color: rgb(255, 255, 255); background-color: rgb(0, 136, 204);">
+                    <th style="text-align: left; min-width: 77px;">参数名</th>
+                    <th style="text-align: left; min-width: 50px;">类型</th>
+                    <th style="text-align: left; min-width: 90px;">中文解释</th>
+                    <th style="text-align: left; min-width: 77px;">备注</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;">groupid</td>
+                    <td style="text-align: left;">int</td>
+                    <td>用户id</td>
+                    <td>用户组id，1：超级管理员；2：普通用户</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><strong>备注</strong> </p>
+        <ul>
+            <li>更多返回错误代码请看首页的错误代码描述</li>
+        </ul>
+    </div>
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src=js/showdoc.js "></script>
+</body></html>
