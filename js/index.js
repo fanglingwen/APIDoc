@@ -12,7 +12,23 @@ function iFrameHeight() {
       var height  = Math.max(cHeight, sHeight)
       return height
   }
-
+function initProject(){
+     $.ajax(
+        {
+            type: 'get',
+            data: {},
+            url: 'phpServer/GetProjectInform.php', //后台处理程序   
+            dataType: 'json',     //接受数据格式    
+            error: function () { console.log("获取列表失败"); },
+            success: function (meg) { //请求成功后处理函数。
+                console.log(meg);
+                var Name = document.getElementById("ProjectName");
+                var ProjectURL = document.getElementById("page-content");
+                Name.innerHTML=meg.projectName;
+                ProjectURL.src = meg.URL;
+            }
+        })
+}
 function initUldata() {
 
     var leftUl = document.getElementById("leftul");
@@ -33,8 +49,8 @@ function initUldata() {
 
 //页面加载完就执行
 $(function(){
-    
-    initUldata();
+    initProject();
+    //initUldata();
 
 //   //自动根据url把当前菜单激活
 //   var current_page_id = $("#current_page_id").val();
