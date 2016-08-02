@@ -4,7 +4,7 @@ include('connt.php');
 
 $title=$_GET["Title"];
 
-$sqlGetitem = "SELECT * from RequestParameter where title = '$title'";
+$sqlGetitem = "SELECT * from ResultNum where title = '$title'";
 
 $itemResult = $conn->query($sqlGetitem);
 
@@ -16,8 +16,7 @@ $i=0;
 
 while($itemRow){
     $data[$i]['name'] = $itemRow['name'];
-    $data[$i]['type'] = $itemRow['type'];
-    $data[$i]['must'] = $itemRow['must'];
+    $data[$i]['value'] = $itemRow['value'];
     $data[$i]['remark'] = $itemRow['remark'];
     $data[$i]['instructions'] = $itemRow['instructions'];
     $itemRow = $itemResult -> fetch_assoc();

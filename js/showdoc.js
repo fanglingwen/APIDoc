@@ -38,8 +38,33 @@
         oTR_1.appendChild(oTD_13);
         oTD_14.appendChild(document.createTextNode(source.instructions));
         oTR_1.appendChild(oTD_14);
-        oTD_15.appendChild(document.createTextNode(source.remark));
+        oTD_15.appendChild(document.createTextNode(addremark(source.remark)));
         oTR_1.appendChild(oTD_15);
+    }
+    function addremark(d){
+            if(d){
+                return d;
+            }
+            else{
+                return "无";
+            }
+        }
+
+    function addReturnsNumRow(oTbody, source){
+        var oTR_1 = document.createElement("tr");
+        oTbody.appendChild(oTR_1);
+        var oTD_11 = document.createElement("td");
+        var oTD_12 = document.createElement("td");
+        var oTD_13 = document.createElement("td");
+        var oTD_14 = document.createElement("td");
+        oTD_11.appendChild(document.createTextNode(source.name));
+        oTR_1.appendChild(oTD_11);
+        oTD_12.appendChild(document.createTextNode(source.value));
+        oTR_1.appendChild(oTD_12);
+        oTD_13.appendChild(document.createTextNode(source.instructions));
+        oTR_1.appendChild(oTD_13);
+        oTD_14.appendChild(document.createTextNode(addremark(source.remark)));
+        oTR_1.appendChild(oTD_14);
     }
     function addTbody(tableId, source) {
         var oTable = document.getElementById(tableId);
@@ -54,9 +79,15 @@
                 i++;
             }
         }
-        else {
+        else if(tableId == "ReturnsParameter"){
             while (i < rows) {
                 addRow(0, oTbody, source[i]);
+                i++;
+            }
+        }
+        else if(tableId == "ReturnsNum"){
+            while (i < rows) {
+                addReturnsNumRow(oTbody, source[i]);
                 i++;
             }
         }
@@ -75,13 +106,12 @@
         { "name": "aaa", "type": "String", "instructions": "这是一个中文说明", "remark": "这是一个备注" },
         { "name": "aaa", "type": "String", "instructions": "这是一个中文说明", "remark": "这是一个备注" }
     ]
-
-    function Refreshtables() {
-
-        addTbody("RequestParameter", loginRows);
-        addTbody("ReturnsParameter", loginRow1s);
-    
-    }
+    var Result = [
+        {"name":"states","value":"0","instructions":"登录失败","remark":"无"},
+        {"name":"states","value":"1","instructions":"登录成功","remark":"无"},
+        {"name":"states","value":"2","instructions":"用户不存在","remark":"无"},
+        {"name":"states","value":"3","instructions":"密码错误","remark":"无"}
+    ]
 
 
     $.ajax(
@@ -96,6 +126,7 @@
                     console.log("获取列表失败");
                 }
                 else {
+                    console.log(meg);
                     changepage(meg);
                 }
             }
@@ -113,7 +144,8 @@
                     console.log("获取列表失败");
                 }
                 else {
-                     addTbody("RequestParameter", megs);
+                     console.log(meg);
+                     addTbody("RequestParameters", meg);
                 }
             }
         })
@@ -130,7 +162,25 @@
                     console.log("获取列表失败");
                 }
                 else {
+                     console.log(meg);
                     addTbody("ReturnsParameter", meg);
+                }
+            }
+        })
+     $.ajax(
+        {
+            type: 'get',
+            data: { Title: title },
+            url: 'phpServer/GitReturnsNum.php', //后台处理程序   
+            dataType: 'json',     //接受数据格式    
+            error: function () { console.log("获取列表失败"); },
+            success: function (meg) { //请求成功后处理函数。
+                if (meg.states == 0) {
+                    console.log("获取列表失败");
+                }
+                else {
+                     console.log(meg);
+                    addTbody("ReturnsNum", meg);
                 }
             }
         })
