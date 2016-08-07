@@ -77,16 +77,16 @@ $(function(){
     var ProjectURL = document.getElementById("page-content");
     if ($(this).children('.child-ul').length == 0) {
         if (page_title == "日志表格") {
-            ProjectURL.src = "developlog.html";
+            ProjectURL.src = "./developlog.html";
         }
         else if (page_title == "类型说明") {
-            ProjectURL.src = "DataDictionary.html";
+            ProjectURL.src = "./DataDictionary.html";
         }
         else if (page_title == "简介") {
-            ProjectURL.src = "information.html";
+            ProjectURL.src = "./Information.html";
         }
         else {
-            ProjectURL.src = "showdoc.html?title=" + page_title;
+            ProjectURL.src = "./showdoc.html?title=" + page_title;
         }
     }
     return false;//禁止原有的href链接
