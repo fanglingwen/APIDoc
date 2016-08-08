@@ -91,3 +91,26 @@ $(function(){
     }
     return false;//禁止原有的href链接
   });
+
+  function addRow(type,oTbody, source) {
+        //创建表格第一行
+        var oTR_1 = document.createElement("tr");
+        oTbody.appendChild(oTR_1);
+        var oTD_11 = document.createElement("td");
+        var oTD_12 = document.createElement("td");
+        var oTD_13 = document.createElement("td");
+        var oTD_14 = document.createElement("td");
+        var oTD_15 = document.createElement("td");
+        oTD_11.appendChild(document.createTextNode(source.name));
+        oTR_1.appendChild(oTD_11);
+        if (type) {
+            oTD_12.appendChild(document.createTextNode(source.must));
+            oTR_1.appendChild(oTD_12);
+        }
+        oTD_13.appendChild(document.createTextNode(source.type));
+        oTR_1.appendChild(oTD_13);
+        oTD_14.appendChild(document.createTextNode(source.instructions));
+        oTR_1.appendChild(oTD_14);
+        oTD_15.appendChild(document.createTextNode(addremark(source.remark)));
+        oTR_1.appendChild(oTD_15);
+    }
