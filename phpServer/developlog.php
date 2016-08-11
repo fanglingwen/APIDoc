@@ -22,7 +22,11 @@ while($userRow){
     $userRow = $ProjectResult -> fetch_assoc();
     $i++;
 }
+<<<<<<< HEAD
 //print_r($data);
+=======
+// print_r($data);
+>>>>>>> origin/master
 $jos = json_encode($data);
 echo $jos;
 ?>

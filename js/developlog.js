@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 function additem(){
 $.ajax(
     {
         type: 'get',
         data: {},
+=======
+$.ajax(
+    {
+        type: 'get',
+        data: { },
+>>>>>>> origin/master
         url: 'phpServer/developlog.php', //后台处理程序   
         dataType: 'json',     //接受数据格式    
         error: function () { console.log("获取列表失败"); },
@@ -16,6 +23,7 @@ $.ajax(
             }
         }
     })
+<<<<<<< HEAD
 }
 
 additem();
@@ -55,15 +63,24 @@ function Additem() {
         })
 
 }
+=======
+
+>>>>>>> origin/master
 function addTbody(tableId, source) {
     var oTable = document.getElementById(tableId);
     //创建tbody
     var oTbody = document.createElement("tbody");
     oTable.appendChild(oTbody);
     var rows = source.length;
+<<<<<<< HEAD
     var i = rows - 1;
 
     while (i => 0) {
+=======
+    var i = rows-1;
+
+    while (i =>0 ) {
+>>>>>>> origin/master
         addRow(1, oTbody, source[i]);
         i--;
     }
@@ -83,13 +100,18 @@ function addRow(type, oTbody, source) {
     oTD_11.appendChild(document.createTextNode(source.ID));
     oTR_1.appendChild(oTD_11);
     oTD_12.appendChild(document.createTextNode(source.Event));
+<<<<<<< HEAD
     oTR_1.appendChild(oTD_12);
+=======
+    oTR_1.appendChild(oTD_12);   
+>>>>>>> origin/master
     oTD_13.appendChild(document.createTextNode(source.EventPoint));
     oTR_1.appendChild(oTD_13);
     oTD_14.appendChild(document.createTextNode(source.EventValue));
     oTR_1.appendChild(oTD_14);
     oTD_15.appendChild(document.createTextNode(source.Author));
     oTR_1.appendChild(oTD_15);
+<<<<<<< HEAD
     oTD_16.appendChild(document.createTextNode(source.CreateTime.substring(2, 10)));
     oTR_1.appendChild(oTD_16);
     oTD_17.appendChild(document.createTextNode(addremark(source.Remark)));
@@ -104,3 +126,19 @@ function addremark(d) {
         return "无";
     }
 }
+=======
+    oTD_16.appendChild(document.createTextNode(source.CreateTime.substring(2,10)));
+    oTR_1.appendChild(oTD_16);
+    oTD_17.appendChild(document.createTextNode(addremark(source.remark)));
+    oTR_1.appendChild(oTD_17);
+}
+
+    function addremark(d){
+            if(d){
+                return d;
+            }
+            else{
+                return "无";
+            }
+        }
+>>>>>>> origin/master
